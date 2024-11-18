@@ -1,0 +1,16 @@
+<section class="favorite">
+  <div class="container">
+    <div class="favorite-title">
+      Избранное
+    </div>
+
+    <div class="favorite-empty" *ngIf="!products || products.length === 0">
+      <div>В избранном нет товаров</div>
+      <button routerLink="/catalog" class="button">В каталог</button>
+    </div>
+
+    <div class="favorite-products" *ngIf="products && products.length > 0">
+        <favorite-product-card *ngFor="let product of products" [product]="product" (removeFromFavoriteEvent)="removeFromFavorites(product.id)"></favorite-product-card>
+    </div>
+  </div>
+</section>
